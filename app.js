@@ -21,11 +21,12 @@ buildtable(tableData)
 // Use D3 `.on` to attach a click handler for the upvote
 filter.on("click", function() {
   // Select the current count
-D3.preventdefault();
+d3.event.preventDefault();
 var inputElement = d3.select("#datetime");
 // Get the value property of the input element
 var inputValue = inputElement.property("value");
-console.log(inputValue)});
-var filteredData = tableData.filter(tableData => tableData.datetime === inputValue);
+console.log(inputValue)
+var filteredData = tableData.filter(row => row.datetime === inputValue);
 console.log(filteredData);
 buildtable(filteredData)
+})
